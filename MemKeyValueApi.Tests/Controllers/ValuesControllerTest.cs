@@ -1,12 +1,8 @@
-﻿using System;
+﻿using MemKeyValue.Business;
+using MemKeyValueApi.Controllers;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Web.Http;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MemKeyValueApi;
-using MemKeyValueApi.Controllers;
 
 namespace MemKeyValueApi.Tests.Controllers
 {
@@ -58,11 +54,12 @@ namespace MemKeyValueApi.Tests.Controllers
         [TestMethod]
         public void Put()
         {
+            KeyValueModel model = new KeyValueModel();
             // Arrange
             ValuesController controller = new ValuesController();
 
             // Act
-            controller.Put(5, "value");
+            controller.Put(model);
 
             // Assert
         }
@@ -74,7 +71,7 @@ namespace MemKeyValueApi.Tests.Controllers
             ValuesController controller = new ValuesController();
 
             // Act
-            controller.Delete(5);
+            controller.Delete("","");
 
             // Assert
         }

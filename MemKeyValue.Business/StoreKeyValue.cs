@@ -36,7 +36,7 @@ namespace MemKeyValue.Business
 
         Dictionary<string, object> _cache = new Dictionary<string, object>();
 
-        public bool AddKeyValue(string _namespace, string _key, string _value)
+        public bool AddKeyValue(string _namespace, string _key, object _value)
         {
             try
             {
