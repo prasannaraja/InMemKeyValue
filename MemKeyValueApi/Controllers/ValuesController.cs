@@ -12,7 +12,10 @@ namespace MemKeyValueApi.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*", exposedHeaders: "X-My-Header")]
     public class ValuesController : ApiController
     {
-
+        /// <summary>
+        /// test method to add sample entries to memory
+        /// </summary>
+        /// <returns></returns>
         // GET api/values
         public IEnumerable<string> Get()
         {
@@ -30,6 +33,11 @@ namespace MemKeyValueApi.Controllers
             return new string[] { "value1", "value2" };
         }
 
+        /// <summary>
+        /// Get key values by namespace
+        /// </summary>
+        /// <param name="_namespace"></param>
+        /// <returns></returns>
         // GET api/values/5
         public IHttpActionResult Get(string _namespace)
         {
@@ -51,6 +59,12 @@ namespace MemKeyValueApi.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// Get value by namespace and key combination
+        /// </summary>
+        /// <param name="_namespace"></param>
+        /// <param name="_key"></param>
+        /// <returns></returns>
         // GET api/values/5
         public IHttpActionResult Get(string _namespace, string _key)
         {
@@ -72,6 +86,11 @@ namespace MemKeyValueApi.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// Save key value by namespace as group name
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         // PUT api/values/5
         public IHttpActionResult Put([FromBody]KeyValueModel value)
         {
@@ -94,6 +113,12 @@ namespace MemKeyValueApi.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Delete key value by namespace
+        /// </summary>
+        /// <param name="_namespace"></param>
+        /// <param name="_key"></param>
+        /// <returns></returns>
         // DELETE api/values/5
         public IHttpActionResult Delete(string _namespace, string _key)
         {
