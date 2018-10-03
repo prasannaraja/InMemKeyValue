@@ -19,17 +19,6 @@ namespace MemKeyValueApi.Controllers
         // GET api/values
         public IEnumerable<string> Get()
         {
-            IStoreKeyValue store = StoreKeyValue.Instance;
-
-            store.AddKeyValue("person", "id", "12003");
-            store.AddKeyValue("person", "name", "prasanna");
-            store.AddKeyValue("person", "email", "prasanna@email.com");
-            store.AddKeyValue("city", "name", "dubai");
-            store.AddKeyValue("country", "name", "uae");
-            store.AddKeyValue("test", "k1", "value01");
-            store.AddKeyValue("test", "k2", "value02");
-            store.AddKeyValue("test", "k3", "value03");
-
             return new string[] { "value1", "value2" };
         }
 
@@ -74,9 +63,9 @@ namespace MemKeyValueApi.Controllers
                 IStoreKeyValue store = StoreKeyValue.Instance;
                 result = store.GetKeyValue(_namespace, _key);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return InternalServerError();
+                return InternalServerError(ex);
             }
             if (result == null)
             {
